@@ -6,7 +6,6 @@ import webbrowser
 
 #for speech recognition
 recognizer = sr.Recognizer()
-
 #convert text to speech
 engine = pyttsx3.init()
 
@@ -19,7 +18,6 @@ def listen():
         print("Listening..")
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
-
     try:
         print("Recognizing..")
         query = recognizer.recognize_google(audio)
@@ -27,15 +25,12 @@ def listen():
     except Exception as e:
         print("Sorry,can you please repeat?")
         query = None
-
     return query
 
 def assistant():
     speak("Hello, I'm Alex. How can I help you today?")
-
     while True:
         query = listen()
-
         if query:
             if "hello" in query:
                 speak("Hi. How can I assist you?")
